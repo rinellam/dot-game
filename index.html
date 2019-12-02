@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <head>
     <title>The Dot Game</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css"
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Press+Start+2P&display=swap" rel="stylesheet"> 
 </head>
     
 <body>
-    <div class="container container-flex">
+
+    <div class="container">
+        
         <img class="title-logo" src="img/space-runner-white.png">
-        <div class="control-box"></div>
+        
+        <div class="control-box container-flex">
+            <div class="top-controls">
+                <div class="score-counter"><h1 class="counter-text">1002</h1></div>
+                <div class="button-play button-text">&#9658</div>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                </div>
+
+            </div>
+        </div>
+
     </div>
     
 
@@ -17,14 +31,17 @@
 
     <div class="custom-cur cur-img">
         <div class="ufo-contain"></div>
-    <div class="p p-1"><img src="/img/alien.svg"></a></div>
-    <div class="p p-2"><img src="/img/cyclops.svg"></div>
-    <div class="q p-3"><img src="/img/alien.svg"></div>
-    <div class="p p-4"><img src="/img/ufo.svg"></div>
-    <div class="p p-5"><img src="/img/alien.svg"></div>
-    <div class="q p-6"><img src="/img/cyclops.svg"></div>
-    <div class="p p-7"><img src="/img/ufo.svg"></div>
-    <div class="p p-8"><img src="/img/alien.svg"></div>
+            <div class="md p-1"><img src="/img/alien.svg"></a></div>
+            <div class="md p-2"><img src="/img/cyclops.svg"></div>
+            <div class="lg p-3"><img src="/img/alien.svg"></div>
+            <div class="md p-4"><img src="/img/ufo.svg"></div>
+            <div class="md p-5"><img src="/img/alien.svg"></div>
+            <div class="lg p-6"><img src="/img/cyclops.svg"></div>
+            <div class="md p-7"><img src="/img/ufo.svg"></div>
+            <div class="md p-8"><img src="/img/alien.svg"></div>
+            <div class="sm p-9"><img src="/img/alien.svg"></div>
+            <div class="sm p-10"><img src="/img/ufo.svg"></div>
+            <div class="sm p-11"><img src="/img/ufo.svg"></div>
         </div>
     </div>
     
@@ -32,9 +49,6 @@
     <div class="stars2"></div>
     <div class="stars3"></div>
 
-    
-
-    
 </body>
 
 </html>

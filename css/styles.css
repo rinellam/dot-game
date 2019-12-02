@@ -2,6 +2,11 @@ html {
   height: 100%;
   overflow: hidden;
   background: #0a1b4b;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
 }
 
 .custom-cur {
@@ -16,6 +21,97 @@ html {
   width: 50px;
   height: 50px;
 }
+
+.container-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.top-controls {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+  flex-wrap: wrap;
+}
+
+.button-play {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-left: 5%;
+  background: cyan;
+}
+
+.button-text {
+  font-size: 2.5rem;
+  color: #fff;
+  text-align: center;
+}
+
+.score-counter {
+  width: 65%;
+  height: 60px;
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: rgb(191, 0, 255);
+}
+
+.counter-text {
+  font-size: 1.7rem;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  color: #ffffff;
+}
+
+.control-box {
+  width: 75%;
+  height: 130px;
+  border-radius: 25px;
+  margin: 0 auto;
+  background-color: rgba(191, 0, 255, .9);
+  z-index: 998;
+  padding: 1em 0 1em 0;
+}
+
+
+/* slider */
+
+.slider {
+  -webkit-appearance: none;
+  width: 200px;
+  height: 10px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: cyan;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: cyan;
+  cursor: pointer;
+}
+
+
+
 
 @keyframes particleAnimation
 {
@@ -42,16 +138,19 @@ html {
   margin: 20px auto;
 }
 
-.control-box {
-  width: 90%;
-  height: 130px;
-  border-radius: 25px;
-  margin: 0 auto;
-  background: #FFFFFF;
-  z-index: 998;
+.sm {
+  width:30px;
+  height:30px;
+  top: 105%;
+  border-radius: 50%;
+  position: absolute;
+  animation-name:particleAnimation;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: 1;
 }
 
-.p {
+.md {
   width:60px;
   height:60px;
   top: 105%;
@@ -63,9 +162,9 @@ html {
   z-index: 1;
 }
 
-.q {
-  width:100px;
-  height:100px;
+.lg {
+  widows:80px;px;
+  height:80px;
   top: 105%;
   border-radius: 50%;
   position: absolute;
@@ -91,33 +190,33 @@ alien sots
 
 
 .p-1 {
-  animation-duration:10s;
-  left:2%;
+  animation-duration:9s;
+  left:5%;
   background-color: #FF69B4;
   z-index: -1;
   /*background-image: linear-gradient(180deg, rgba(255,255,255,0.60) 0%, rgba(0,0,0,0.50) 100%);*/
 }
 .p-2 {
-  animation-duration:3s;
+  animation-duration:4s;
   left:19%;
   background-color: #FF69B4;
   z-index: -1;
 }
 .p-3 {
-  animation-duration:20s;
+  animation-duration:17s;
   left:28%;
   background-color: #86ff81;
   z-index: -1;
 }
 .p-4 {
-  animation-duration:15s;
+  animation-duration:13s;
   left:39%;
   background-color: #bf00ff;
   z-index: -1;
 }
 .p-5 {
-  animation-duration:12s;
-  left:66%;
+  animation-duration:2s;
+  left:68%;
   background-color: #FF69B4;
   z-index: -1;
 }
@@ -134,8 +233,26 @@ alien sots
   z-index: -1;
 }
 .p-8 {
-  animation-duration:9s;
+  animation-duration:8s;
   left:63%;
+  background:#FF69B4;
+  z-index: -1;
+}
+.p-9 {
+  animation-duration:4s;
+  left:50%;
+  background:#FF69B4;
+  z-index: -1;
+}
+.p-10 {
+  animation-duration:2.5s;
+  left:80%;
+  background:#FF69B4;
+  z-index: -1;
+}
+.p-11 {
+  animation-duration:1.5s;
+  left:7%;
   background:#FF69B4;
   z-index: -1;
 }

@@ -3,6 +3,19 @@ html {
   overflow: hidden;
 }
 
+.custom-cur {
+  cursor: crosshair;
+}
+
+.custom-cur {
+  cursor: url('/img/laser.cur');
+}
+
+.cur-img {
+  width: 50px;
+  height: 50px;
+}
+
 @keyframes particleAnimation
 {
     from {
@@ -26,6 +39,17 @@ body{
 .p {
   width:60px;
   height:60px;
+  top: 105%;
+  border-radius: 50%;
+  position: absolute;
+  animation-name:particleAnimation;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.q {
+  width:100px;
+  height:100px;
   top: 105%;
   border-radius: 50%;
   position: absolute;
@@ -57,13 +81,13 @@ body{
 }
 .p-3 {
   animation-duration:20s;
-  left:33%;
+  left:28%;
   background-color: cyan;
   background-image: linear-gradient(180deg, rgba(255,255,255,0.60) 0%, rgba(0,0,0,0.50) 100%);
 }
 .p-4 {
   animation-duration:15s;
-  left:37%;
+  left:39%;
   background-color: firebrick;
   background-image: linear-gradient(180deg, rgba(255,255,255,0.60) 0%, rgba(0,0,0,0.50) 100%);
 }
@@ -74,7 +98,7 @@ body{
   background-image: linear-gradient(180deg, rgba(255,255,255,0.60) 0%, rgba(0,0,0,0.50) 100%);
 }
 .p-6 {
-  animation-duration:25s;
+  animation-duration:5s;
   left:80%;
   background: yellow;
 background-image: linear-gradient(180deg, rgba(255,255,255,0.60) 0%, rgba(0,0,0,0.50) 100%);

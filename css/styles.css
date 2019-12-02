@@ -1,10 +1,10 @@
 @keyframes particleAnimation
 {
     from {
-        left: -100px;
+        top: -100px;
     }
     to {
-        left: calc( 100% + 100px );
+        bottom: calc( 100% + 100px );
     }
 }
 
@@ -12,19 +12,20 @@ body{
   background:black;
 }
 
-.p{
-  position:fixed;
-  left:0px;
-  top:50px;
-  width:1px;
-  height:1px;
-  background-color:white;
-  position:fixed;
+.container {
+  display: flex;
+}
+
+.p {
+  width:20px;
+  height:20px;
+  border-radius: 50%;
+  position: absolute;
   animation-name:particleAnimation;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-.p::before{
+/*.p::before{
   position:absolute;
   display:block;
   content:"";
@@ -32,16 +33,54 @@ body{
   right:1px;
   top:0px;
   height:1px;
-  background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(255,255,255,0.4) 100%); 
-}
-.p-1{
+  background: rgba(255,255,255,0.4) 100%); 
+}*/
+.p-1 {
   animation-duration:10s;
+  top: 100%;
+  left:100px;
+  background-color: blueviolet;;
+
 }
-.p-2{
-  animation-duration:5s;
-  top:60%;
+.p-2 {
+  animation-duration:8s;
+  top: 100%;
+  left:200px;
+  background-color: blue;
 }
-.p-3{
+.p-3 {
   animation-duration:20s;
-  top:90%;
+  top: 100%;
+  left:500px;
+  background-color: cyan;
+}
+.p-4 {
+  animation-duration:15s;
+  top: 100%;
+  left:370px;
+  background-color: firebrick;
+}
+.p-5 {
+  animation-duration:12s;
+  top: 100%;
+  left:250px;
+  background-color: green;
+}
+
+/* backrground */
+
+.perspective-container {
+  overflow: hidden; /* so we dont get any undesired scrolling in the browser window */
+  width: 100%;
+}
+
+.bottom-background {
+  background-size: 30px 30px;
+  background-image: linear-gradient(to right, green 1px, transparent 1px), linear-gradient(to bottom, green 1px, transparent 1px);
+  width: 100%;
+  height: 30vh;
+  bottom: 0;
+  position: absolute;
+  
+  transform: perspective(400px) rotateX(70deg) scale(2);
 }

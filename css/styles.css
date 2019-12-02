@@ -8,7 +8,7 @@ html {
 }
 
 .custom-cur {
-  cursor: url('/img/laser.cur');
+  cursor: url('/img/laser.svg');
 }
 
 .cur-img {

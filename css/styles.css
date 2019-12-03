@@ -9,19 +9,6 @@ body {
   margin: 0;
 }
 
-.custom-cur {
-  cursor: crosshair;
-}
-
-.custom-cur {
-  cursor: url('/img/laser.svg');
-}
-
-.cur-img {
-  width: 50px;
-  height: 50px;
-}
-
 .container-flex {
   display: flex;
   flex-direction: row;
@@ -42,7 +29,9 @@ body {
   height: 60px;
   border-radius: 50%;
   margin-left: 5%;
-  background: cyan;
+  background: rgb(255,131,0);
+background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
+  /*background: #FF8300;*/
 }
 
 .button-text {
@@ -99,14 +88,18 @@ body {
   appearance: none;
   width: 25px;
   height: 25px;
-  background: cyan;
+  background: rgb(255,131,0);
+background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
+  /*background: #FF8300;*/
   cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
-  background: cyan;
+  background: rgb(255,131,0);
+background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
+  /*background: #FF8300;*/
   cursor: pointer;
 }
 
@@ -310,6 +303,10 @@ backrground grid
 }
 
 
+@media (min-width: 768px){
+  .control-box {
+    width: 50%;
+}
 
 
 

@@ -286,17 +286,19 @@ alien sots
 /* modal */
 
 .btn {
-  background: cyan;
-  color: #000000;
-  padding: 15px 20px 15px 20px;
-  border-radius: 8px;
+  background: rgb(255,131,0);
+  background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
+  color: #fff;
+  padding: 6px;
+
+  border-radius: 50%;
   display: inline-block;
   font-family: 'Press Start 2P', cursive;
-  font-size: 14px;
+  font-size: .75rem;
   text-decoration: none;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  bottom: 0%;
+  left: 10%;
   transform: translate(-50%, -50%);
 }
 .lightbox {
@@ -423,12 +425,14 @@ backrground grid
 @media (min-width: 500px){
   .control-box {
     width: 65%;
+  }
 }
 @media (min-width: 768px){
   .control-box {
     width: 48%;
+  }
+  .btn {
+    left: 5%;
+  }
 }
-
-
-
 

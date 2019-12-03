@@ -15,33 +15,65 @@ body {
   justify-content: center;
 }
 
-.top-controls {
+/* - - - - - - - - - 
+control box
+- - - - - - - - - */
+
+.control-box {
   width: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: space-around;
-  flex-wrap: wrap;
+  height: 130px;
+  border-radius: 20px;
+  margin: 0 auto;
+  background-color: rgba(191, 0, 255, .9);
+  z-index: 998;
+  padding: .5em 0 .5em 0;
 }
 
+.top-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
+/* - - - - - - - - - 
+play button
+- - - - - - - - - */
+
 .button-play {
-  width: 60px;
+  display: flex;
+  justify-content: center;
+  width: 45%;
   height: 60px;
-  border-radius: 50%;
-  margin-left: 5%;
+  border-radius: 10px;
   background: rgb(255,131,0);
-background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
-  /*background: #FF8300;*/
+  background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
 }
 
 .button-text {
-  font-size: 2.5rem;
+  align-items: center;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.5rem;
   color: #fff;
-  text-align: center;
+  text-transform: uppercase;
 }
 
+.button-text:hover {
+  color: cyan;
+}
+
+
+
+
+/* - - - - - - - - - 
+score counter
+- - - - - - - - - */
+
 .score-counter {
-  width: 65%;
+  display: flex;
+  justify-content: center;
+  width: 50%;
   height: 60px;
   border: 1px solid white;
   border-radius: 10px;
@@ -49,24 +81,22 @@ background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%,
 }
 
 .counter-text {
-  font-size: 1.7rem;
+  align-items: center;
   font-family: 'Press Start 2P', cursive;
-  text-align: center;
+  font-size: 1.5rem;
   color: #ffffff;
+  text-transform: uppercase;
 }
 
-.control-box {
-  width: 75%;
-  height: 130px;
-  border-radius: 25px;
-  margin: 0 auto;
-  background-color: rgba(191, 0, 255, .9);
-  z-index: 998;
-  padding: 1em 0 1em 0;
+/* - - - - - - - - - 
+slider
+- - - - - - - - - */
+
+.slidecontainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
-
-
-/* slider */
 
 .slider {
   -webkit-appearance: none;
@@ -88,8 +118,9 @@ background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%,
   appearance: none;
   width: 25px;
   height: 25px;
+  border-radius: 50%;
   background: rgb(255,131,0);
-background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
+  background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
   /*background: #FF8300;*/
   cursor: pointer;
 }
@@ -97,9 +128,9 @@ background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%,
 .slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
+  border-radius: 50%;
   background: rgb(255,131,0);
-background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
-  /*background: #FF8300;*/
+  background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
   cursor: pointer;
 }
 
@@ -250,6 +281,91 @@ alien sots
   z-index: -1;
 }
 
+
+
+/* modal */
+
+.btn {
+  background: cyan;
+  color: #000000;
+  padding: 15px 20px 15px 20px;
+  border-radius: 8px;
+  display: inline-block;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  text-decoration: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.lightbox {
+   display: none;
+   position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+}
+.lightbox:target {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.lightbox__body {
+   width: 400px;
+   position: relative;
+}
+
+.lightbox__content {
+   background: #fff;
+   padding: 40px;
+   border-radius: 2px;
+   position: relative;
+   
+   p {
+       margin: 0;
+       font-size: 14px;
+       line-height: 1.6em;
+       color: #444;
+   }
+}
+.lightbox__close-btn::after {
+   content: "X";
+   display: inline-block;
+   position: absolute;
+   right: -2px;
+   top: -2px;
+   z-index: 3;
+   width: auto;
+   height: 30px;
+   cursor: pointer;
+   background: #000;
+   font-weight: 700;
+   font-size: 11px;
+   padding: 0 15px;
+   line-height: 30px;
+   color: #fff;
+}
+
+.lightbox__close-btn::before {
+   content: "";
+   display: block;
+   position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+
+
+
+
+
 /* - - - - - - - - -
 backrground grid 
 - - - - - - - - - */
@@ -258,6 +374,7 @@ backrground grid
   width: 100%;
   position: absolute;
   bottom: 0;
+  z-index: -3;
 }
 
 .bottom-background {
@@ -267,7 +384,6 @@ backrground grid
   height: 40vh;
   bottom: 0;
   transform: perspective(400px) rotateX(75deg) scale(2);
-  z-index: -3;
 }
 
 
@@ -303,10 +419,16 @@ backrground grid
 }
 
 
+
+@media (min-width: 500px){
+  .control-box {
+    width: 65%;
+}
 @media (min-width: 768px){
   .control-box {
-    width: 50%;
+    width: 48%;
 }
+
 
 
 

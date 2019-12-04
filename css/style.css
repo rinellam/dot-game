@@ -1,0 +1,59 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: sans-serif;
+    background-image: url(/img/space-bkg2.jpg);
+  }
+  header {
+    background: #f2f2f2;
+    padding: .5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+  #score {
+    font-size: 5rem;
+    line-height: .75;
+    margin: 0;
+  }
+  .label {
+    display: block;
+    font-size: .75rem;
+    letter-spacing: 1px;
+  }
+  .controls {
+    position: relative;
+    label {
+      position: absolute;
+      top: 22px;
+      &:last-child {
+        right: 0;
+      }
+    }
+    input {
+      display: block;
+    }
+  }
+  .toggle {
+    background: #2d8656;
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: transform 75ms cubic-bezier(0.5, 0, 0.1, 1);
+    &:hover {
+      transform: scale(1.095);
+    }
+    &:active {
+      transform: scale(.95);
+    }
+  }
+  .playing {
+  background: #dc3545;
+  }

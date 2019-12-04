@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Dot Game</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+  <header>
+
+    <div class="stats">
+      <p id="score"></p>
+      <p class="label">SCORE</p>
+    </div>
+    
+    <button id="toggle" class="toggle">Play</button>
+    <div class="controls">
+      <input type="range" id="speed" min="10" max="100" value="10" />      
+      <label class="label">SLOW</label>
+      <label class="label">FAST</label>
+    </div>
+  </header>
+  <main>
+    <canvas id="canvas"></canvas>
+  </main>
+  <script src="/js/index.js"></script>
+</body>
+</html>

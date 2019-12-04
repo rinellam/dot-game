@@ -1,8 +1,21 @@
 <!DOCTYPE html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Dot Game</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Press+Start+2P&display=swap" rel="stylesheet"> 
+
+    <!--play buttons state-->
+    <script type="text/javascript">
+        function change( el )
+        {
+            if ( el.value === "Play" )
+                el.value = "Pause";
+            else
+                el.value = "Play";
+        }
+    </script>
+
 </head>
     
 <body>
@@ -14,7 +27,8 @@
         <div class="control-box container-flex">
             <div class="top-controls">
                 <div class="score-counter"><h1 class="counter-text">0002</h1></div>
-                <div class="button-play button-text"><span class="blinking">Play</span></div>
+                <!--<div class="button-play button-text">Play</div>-->
+                <input class="button-play button-text" type="button" value="Play" onclick="return change(this);" />
                 <div class="slidecontainer">
                     <input type="range" min="10" max="100" value="10" class="slider" id="speed">
                 </div>
@@ -28,6 +42,7 @@
     <div class="perspective-container">
         <div class="bottom-background"></div>
     </div>
+
     <!--
     <div class="md p-1"><img src="/img/alien.svg"></a></div>
     <div class="md p-2"><img src="/img/cyclops.svg"></div>
@@ -41,24 +56,55 @@
     <div class="sm p-10"><img src="/img/ufo.svg"></div>
     <div class="sm p-11"><img src="/img/ufo.svg"></div>
     -->
+    <div class="lg p-1"><img src="../img/cyclops.svg"></a></div>
+    <div class="xlg p-2"><img src="../img/alien.svg"></div>
+    <div class="md p-2a"><img src="../img/alien.svg"></div>
+    <div class="lg p-3"><img src="../img/alien.svg"></div>
+    <div class="xsm p-3a"><img src="../img/ufo.svg"></div>
+    <div class="md p-4"><img src="../img/ufo.svg"></div>
     
-    <div class="stars"></div>
-    <div class="stars2"></div>
-    <div class="stars3"></div>
+    <div class="sm p-5"><img src="../img/alien.svg"></div>
+    <div class="lg p-6"><img src="../img/cyclops.svg"></div>
+    <div class="xlg p-6a"><img src="../img/ufo.svg"></div>
+    <div class="md p-7"><img src="../img/alien.svg"></div>
+    <div class="md p-8"><img src="../img/ufo.svg"></div>
+    
+    <div class="sm p-9"><img src="../img/alien.svg"></div>
+    <div class="lg p-10"><img src="../img/cyclops.svg"></div>
+    <div class="xsm p-10a"><img src="../img/ufo.svg"></div>
+    <div class="md p-11"><img src="../img/alien.svg"></div>
+    <div class="sm p-13"><img src="../img/ufo.svg"></div>
+    
+    <div class="md p-14"><img src="../img/alien.svg"></div>
+    <div class="lg p-15"><img src="../img/cyclops.svg"></div>
+    <div class="xlg p-15a"><img src="../img/ufo.svg"></div>
+    <div class="sm p-16"><img src="../img/alien.svg"></div>
+    <div class="md p-17"><img src="../img/ufo.svg"></div>
+    
+    <div class="lg p-18"><img src="../img/alien.svg"></div>
+    <div class="sm p-19"><img src="../img/cyclops.svg"></div>
+    <div class="xsm p-19a"><img src="../img/cyclops.svg"></div>
+    <div class="xlg p-20"><img src="../img/alien.svg"></div>
+    <div class="sm p-21"><img src="../img/ufo.svg"></div>
 
-    <a href="#example1" class="btn">?</a>
 
-    <div class="lightbox" id="example1">
+   
+
+    <a href="#help" class="btn">?</a>
+
+    <div class="lightbox" id="help">
     <figure class="lightbox__body">
         <a href="#" class="lightbox__close-btn"></a>
         <figcaption class="lightbox__content">
-            <p><strong>To Play:</strong></p>
-                <p>• Click the Play button to start the alien invasion.</p>
-                <p>• Aliens move down the screen.</p>
-                <p>• Adjust the speed of the dots falling by using the slider.</p>
-                <p>• Use the cursor to shoot the aliens by clicking on them as they move down the screen.</p>
-                <p>• Value is proportional to the size of the alien target, smallest aliens are worth 10 points, and the largest aliens worth 1 point.</p>
-                <p>• Your score is accumulated in the score tracker.</p>
+            <p><strong><span class="uppercase-text">To Play:</span></strong><br>
+                <p><ul><li>Click the 'Play' button to start the alien invasion.</li>
+                <li>Click the 'Pause' button to pause the alien invasion.</li>
+                <li>Adjust the speed of the aliens falling by using the slider.</li>
+                <li>Use the cursor to shoot the aliens by clicking on them as they move down the screen.</li>
+                <li>Value is proportional to the size of the alien target, smallest aliens are worth 10 points, and the largest aliens worth 1 point.</li>
+                <li>Your score is accumulated in the score tracker.</li>
+                <p class="ranger-text">Save The Earth Space Ranger!</p></ul>
+            </p>
         </figcaption>
     </figure>
     </div>

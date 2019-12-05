@@ -1,59 +1,804 @@
-*, *:before, *:after {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    font-family: sans-serif;
-    background-image: url(/img/space-bkg2.jpg);
-  }
-  header {
-    background: #f2f2f2;
-    padding: .5rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
-  }
-  #score {
-    font-size: 5rem;
-    line-height: .75;
-    margin: 0;
-  }
-  .label {
-    display: block;
-    font-size: .75rem;
-    letter-spacing: 1px;
-  }
-  .controls {
-    position: relative;
-    label {
-      position: absolute;
-      top: 22px;
-      &:last-child {
-        right: 0;
-      }
+/* - - - - - - - - - 
+global styles
+- - - - - - - - - */
+html {
+  height: 100vh;
+  overflow: hidden;
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+}
+
+body {
+  background: #0A1B4B;
+  background-image: url(/img/space-bkg2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -3;
+}
+
+input {
+  border: none;
+}
+
+/* - - - - - - - - - 
+global - text styles
+- - - - - - - - - */
+strong {
+  font-weight: 700;
+}
+
+/* indent handing lines on li and ul */
+ul li {
+  list-style-position: outside;
+  margin-left: 1em;
+}
+
+.uppercase-text {
+  text-transform: uppercase;
+}
+
+.button-text,
+.counter-text {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.35rem;
+  color: #FFF;
+  text-transform: uppercase;
+}
+
+.button-text:hover {
+  color: cyan;
+}
+
+/* - - - - - - - - - 
+container and logo
+- - - - - - - - - */
+.container {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  background: transparent;
+}
+
+.title-logo {
+  width: 90%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+/* - - - - - - - - -
+backrground grid 
+- - - - - - - - - */
+.perspective-container {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 0;
+}
+
+.bottom-background {
+  background-size: 25px 25px;
+  background-image: -o-linear-gradient(left, cyan 2px, transparent 1px), -o-linear-gradient(top, cyan 2px, transparent 1px);
+  background-image: linear-gradient(to right, cyan 2px, transparent 1px), linear-gradient(to bottom, cyan 2px, transparent 1px);
+  width: 100%;
+  height: 25vh;
+  bottom: 0;
+  -webkit-transform: perspective(400px) rotateX(75deg) scale(2);
+          transform: perspective(400px) rotateX(75deg) scale(2);
+}
+
+/* - - - - - - - - - 
+controls box
+- - - - - - - - - */
+.control-box {
+  width: 80%;
+  height: 105px;
+  border-radius: 20px;
+  margin: 0 auto;
+  background: -o-linear-gradient(332deg, rgba(191,0,255,0.9) 27%, rgba(63,54,136,0.9457983877144608) 56%, rgba(255,0,255,0.9) 92%);
+  background: linear-gradient(118deg, rgba(191,0,255,0.9) 27%, rgba(63,54,136,0.9457983877144608) 56%, rgba(255,0,255,0.9) 92%);  z-index: 2;
+  padding: 1em;
+}
+
+/* - - contorl layout of score and play button - - */
+.top-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 80%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+/* - - contorl layout of slider and +/- icons - - */
+.bottom-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* - - - - - - - - - 
+play button
+- - - - - - - - - */
+.button-play {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 45%;
+  height: 60px;
+  border-radius: 10px;
+  background: rgb(255,131,0);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255,131,0,1)), color-stop(50%, rgba(252,148,38,1)), to(rgba(255,177,94,1)));
+  background: -o-linear-gradient(left, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
+  background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
+  -webkit-box-shadow: 10px 12px 15px -8px rgba(0,0,0,0.3); 
+box-shadow: 10px 12px 15px -8px rgba(0,0,0,0.3);
+}
+
+/* - - - - - - - - - 
+score counter
+- - - - - - - - - */
+.score-counter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 45%;
+  height: 60px;
+  border-radius: 10px;
+  background: #e600e7;
+  -webkit-box-shadow: 10px 12px 15px -8px rgba(0,0,0,0.3); 
+  box-shadow: 10px 12px 15px -8px rgba(0,0,0,0.3);
+  outline: 2px solid rgba(255,255,255,0.3);
+  outline-offset: -10px;
+}
+
+/* - - - - - - - - - 
+slider
+- - - - - - - - - */
+.slidecontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 200px;
+  height: 10px;
+  background: #D3D3D3;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  -webkit-transition: opacity .2s;
+  -o-transition: opacity .2s;
+  transition: opacity .2s;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: rgb(255,131,0);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255,131,0,1)), color-stop(50%, rgba(252,148,38,1)), to(rgba(255,177,94,1)));
+  background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: rgb(255,131,0);
+  background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
+  cursor: pointer;
+}
+
+/* - - style for plus and minus icons for slider - - */
+.la-plus-circle::before {
+  content: "\f055";
+  font-size: 1.5rem;
+  color: rgba(255,255,255,.7)
+}
+
+.la-minus-circle::before {
+  content: "\f055";
+  font-size: 1.5rem;
+  color: rgba(255,255,255,.7)
+}
+
+/* - - - - - - - - -
+alien sots 
+- - - - - - - - - */
+/* animation */
+@-webkit-keyframes particleAnimation
+{
+    from {
+        top: -100px;
     }
-    input {
-      display: block;
+    to {
+        bottom: calc( 100% + 100px );
     }
-  }
-  .toggle {
-    background: #2d8656;
-    color: white;
-    font-size: 18px;
-    text-transform: uppercase;
-    border: none;
-    padding: .5rem 1rem;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: transform 75ms cubic-bezier(0.5, 0, 0.1, 1);
-    &:hover {
-      transform: scale(1.095);
+}
+@keyframes particleAnimation
+{
+    from {
+        top: -100px;
     }
-    &:active {
-      transform: scale(.95);
+    to {
+        bottom: calc( 100% + 100px );
     }
+}
+
+/* - - sizes of aliens - - */
+.xsm {
+  width:13px;
+  height:13px;
+  top: 100%;
+  border-radius: 50%;
+  position: absolute;
+  -webkit-animation-name:particleAnimation;
+          animation-name:particleAnimation;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.sm {
+  width:30px;
+  height:30px;
+  top: 100%;
+  border-radius: 50%;
+  position: absolute;
+  -webkit-animation-name:particleAnimation;
+          animation-name:particleAnimation;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.md {
+  width:60px;
+  height:60px;
+  top: 100%;
+  border-radius: 50%;
+  position: absolute;
+  -webkit-animation-name:particleAnimation;
+          animation-name:particleAnimation;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.lg {
+  width:80px;
+  height:80px;
+  top: 100%;
+  border-radius: 50%;
+  position: absolute;
+  -webkit-animation-name:particleAnimation;
+          animation-name:particleAnimation;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.xlg {
+  width:100px;
+  height:100px;
+  top: 100%;
+  border-radius: 50%;
+  position: absolute;
+  -webkit-animation-name:particleAnimation;
+          animation-name:particleAnimation;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+/* - - aliens, animation, layout and styles - - */
+.p-1 {
+  -webkit-animation-duration:3s;
+          animation-duration:3s;
+  left:15%;
+  background: #FF69B4;
+  z-index: -1;
+}
+
+.p-2 {
+  -webkit-animation-duration:2.5s;
+          animation-duration:2.5s;
+  left:20%;
+  background: #FF69B4;
+  z-index: -1;
+}
+
+.p-2a {
+  -webkit-animation-duration:9s;
+          animation-duration:9s;
+  left:28%;
+  background: #BF00FF;
+  z-index: -1;
+}
+
+.p-3 {
+  -webkit-animation-duration:11s;
+          animation-duration:11s;
+  left:30%;
+  background: #86FF81;
+  z-index: -1;
+}
+
+.p-3a {
+  -webkit-animation-duration:6s;
+          animation-duration:6s;
+  left:33%;
+  /* no bkg color needed */
+  z-index: -1;
+}
+
+.p-4 {
+  -webkit-animation-duration:4s;
+          animation-duration:4s;
+  left:35%;
+  background: #BF00FF;
+  z-index: -1;
+}
+
+.p-5 {
+  -webkit-animation-duration:10s;
+          animation-duration:10s;
+  left:37%;
+  background: #FF69B4;
+  z-index: -1;
+}
+
+.p-6 {
+  -webkit-animation: duration 8s;
+          animation: duration 8s;
+  left:39%;
+  background: #86FF81;
+  z-index: -1;
+}
+
+.p-6a {
+  -webkit-animation-duration:14s;
+          animation-duration:14s;
+  left:41%;
+  background: #FF69B4;
+  z-index: -1;
+}
+
+.p-7 {
+  -webkit-animation-duration:5s;
+          animation-duration:5s;
+  left:43%;
+  background:#BF00FF;
+  z-index: -1;
+}
+
+.p-8 {
+  -webkit-animation-duration:7s;
+          animation-duration:7s;
+  left:45%;
+  background:#FF69B4;
+  z-index: -1;
+}
+
+.p-9 {
+  -webkit-animation-duration:4s;
+          animation-duration:4s;
+  left:47%;
+  background: #86FF81;
+  z-index: -1;
+}
+
+.p-10 {
+  -webkit-animation-duration:1.8s;
+          animation-duration:1.8s;
+  left:49%;
+  background:#FF69B4;
+  z-index: -1;
+}
+
+.p-10a {
+  -webkit-animation-duration:8s;
+          animation-duration:8s;
+  left:51%;
+  /* no bkg color needed */
+  z-index: -1;
+}
+
+.p-11 {
+  -webkit-animation-duration:10s;
+          animation-duration:10s;
+  left:53%;
+  background: #86FF81;
+  z-index: -1;
+}
+
+.p-12 {
+  -webkit-animation-duration:6s;
+          animation-duration:6s;
+  left:55%;
+  background: #FF69B4;
+  z-index: -1;
+}
+
+.p-13 {
+  -webkit-animation-duration:7s;
+          animation-duration:7s;
+  left:57%;
+  background: #FF69B4;
+  z-index: -1;
+}
+
+.p-14 {
+  -webkit-animation-duration:17s;
+          animation-duration:17s;
+  left:59%;
+  background: #86FF81;
+  z-index: -1;
+}
+
+.p-15 {
+  -webkit-animation-duration:4s;
+          animation-duration:4s;
+  left:61%;
+  background: #BF00FF;
+  z-index: -1;
+}
+
+.p-15a {
+  -webkit-animation-duration:2s;
+          animation-duration:2s;
+  left:63%;
+  background: #FF69B4;
+  z-index: -1;
+}
+
+.p-16 {
+  -webkit-animation-duration:13s;
+          animation-duration:13s;
+  left:65%;
+  background: #FF69B4;
+  z-index: -1;
+}
+
+.p-17 {
+  -webkit-animation-duration:9s;
+          animation-duration:9s;
+  left:67%;
+  background: #86FF81;
+  z-index: -1;
+}
+
+.p-18 {
+  -webkit-animation-duration:6s;
+          animation-duration:6s;
+  left:69%;
+  background:#BF00FF;
+  z-index: -1;
+}
+
+.p-19 {
+  -webkit-animation-duration:5s;
+          animation-duration:5s;
+  left:71%;
+  background:#FF69B4;
+  z-index: -1;
+}
+
+.p-19a {
+  -webkit-animation-duration:2s;
+          animation-duration:2s;
+  left:73%;
+  /* no bkg color needed */
+  z-index: -1;
+}
+
+.p-20 {
+  -webkit-animation-duration:4s;
+          animation-duration:4s;
+  left:76%;
+  background:#FF69B4;
+  z-index: -1;
+}
+
+/* - - - - - - - - -
+Help modal
+- - - - - - - - - */
+.btn {
+  background: rgb(255,131,0);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255,131,0,1)), color-stop(50%, rgba(252,148,38,1)), to(rgba(255,177,94,1)));
+  background: -o-linear-gradient(left, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
+  background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
+  color: #fff;
+  padding: 6px;
+  border-radius: 50%;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  position: absolute;
+  bottom: 0%;
+  left: 10%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-decoration: none;
+  z-index: 1000;
+  -webkit-box-shadow: 10px 12px 15px -8px rgba(0,0,0,0.4); 
+box-shadow: 10px 12px 15px -8px rgba(0,0,0,0.4);
+}
+.lightbox {
+   display: none;
+   position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+}
+.lightbox:target {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-pack: center;
+       -ms-flex-pack: center;
+           justify-content: center;
+   -webkit-box-align: center;
+       -ms-flex-align: center;
+           align-items: center;
+}
+
+.lightbox__body {
+   width: 600px;
+   position: relative;
+}
+
+.lightbox__content {
+   background: #FFF;
+   padding: 40px;
+   border-radius: 8px;
+   position: relative;
+   
+   p {
+       margin: 0;
+       font-size: 14px;
+       line-height: 1.6em;
+       color: #444;
+   }
+}
+.lightbox__close-btn::after {
+   content: "X";
+   display: inline-block;
+   position: absolute;
+   border-radius: 2px;
+   right: 0;
+   top: 0;
+   z-index: 3;
+   width: auto;
+   height: 30px;
+   cursor: pointer;
+   background: -webkit-gradient(linear, left top, right top, from(rgba(255,131,0,1)), color-stop(50%, rgba(252,148,38,1)), to(rgba(255,177,94,1)));
+   background: -o-linear-gradient(left, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
+   background: linear-gradient(90deg, rgba(255,131,0,1) 0%, rgba(252,148,38,1) 50%, rgba(255,177,94,1) 100%);
+   font-weight: 700;
+   font-size: 14px;
+   padding: 0 15px;
+   line-height: 30px;
+   color: #fff;
+}
+
+.lightbox__close-btn::before {
+   content: "";
+   display: block;
+   position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background: rgba(0,0,0,.7)
+}
+
+.ranger-text {
+  font-family: 'Press Start 2P', cursive;
+  font-size: .85rem;
+  color: #BF00FF;
+  line-height: 1.3;
+}
+
+/* - - - - - - - - -
+custom cursor
+- - - - - - - - - */
+.cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #FFF;
+  border-radius: 50%;
+  position: absolute;
+  -webkit-transition-duration: 200ms;
+       -o-transition-duration: 200ms;
+          transition-duration: 200ms;
+  -webkit-transition-timing-function: ease-out;
+       -o-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+  -webkit-animation: cursorAnim .2s infinite alternate;
+          animation: cursorAnim .2s infinite alternate;
+  pointer-events: none;
+}
+
+.cursor::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border: 8px solid #86FF81;
+  border-radius: 50%;
+  opacity: .7;
+  top: -8px;
+  left: -8px;
+  -webkit-animation: cursorAnim2 .5s infinite alternate;
+          animation: cursorAnim2 .5s infinite alternate;
+}
+
+@-webkit-keyframes cursorAnim {
+  from {
+      -webkit-transform: scale(1);
+              transform: scale(1);
   }
-  .playing {
-  background: #dc3545;
+  to {
+      -webkit-transform: scale(.7);
+              transform: scale(.7);
   }
+}
+
+@keyframes cursorAnim {
+  from {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+  }
+  to {
+      -webkit-transform: scale(.7);
+              transform: scale(.7);
+  }
+}
+
+@-webkit-keyframes cursorAnim2 {
+  from {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+  }
+  to {
+      -webkit-transform: scale(.4);
+              transform: scale(.4);
+  }
+}
+
+@keyframes cursorAnim2 {
+  from {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+  }
+  to {
+      -webkit-transform: scale(.4);
+              transform: scale(.4);
+  }
+}
+
+@-webkit-keyframes cursorAnim3 {
+  0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+  }
+  50% {
+      -webkit-transform: scale(4);
+              transform: scale(4);
+  }
+  100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 0;
+  }
+}
+
+@keyframes cursorAnim3 {
+  0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+  }
+  50% {
+      -webkit-transform: scale(4);
+              transform: scale(4);
+  }
+  100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 0;
+  }
+}
+
+.expand {
+  -webkit-animation: cursorAnim3 .5s forwards;
+          animation: cursorAnim3 .5s forwards;
+  border: 2px solid #FF00FF;
+}
+
+/* - - - - - - - - -
+media queries
+- - - - - - - - - */
+@media (min-width: 500px){
+  .control-box {
+    width: 65%;
+  }
+}
+
+@media (min-width: 768px){
+  .control-box {
+    width: 48%;
+  }
+  .btn {
+    left: 5%;
+  }
+  .button-text,
+  .counter-text {
+    font-size: 1.5rem;
+  }
+  .ranger-text {
+    font-size: 1rem;
+  }
+}
+
+
